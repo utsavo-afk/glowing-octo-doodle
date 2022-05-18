@@ -1,5 +1,5 @@
 import { Layout, TextField } from '@src/components';
-import { loginSchema } from '@src/validation/loginSchema';
+import { loginSchema } from '@src/validation';
 import { Formik } from 'formik';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
