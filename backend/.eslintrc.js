@@ -43,7 +43,7 @@ module.exports = {
 		'import/resolver': {
 			typescript: {
 				alwaysTryTypes: true,
-				project: './backend/tsconfig.json',
+				project: '/Users/uo/Dev/fs-app/backend/tsconfig.json',
 			},
 		},
 	},

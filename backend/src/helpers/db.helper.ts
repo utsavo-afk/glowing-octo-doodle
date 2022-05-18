@@ -1,21 +1,22 @@
 import { PrismaClient } from '@prisma/client';
+import { logger } from '@src/utils';
 
 const prisma = new PrismaClient();
 
 export async function ConnectToDB() {
 	try {
 		await prisma.$connect();
-		console.log('Connected to db...');
+		logger.info('Connected to db...');
 	} catch (error) {
-		console.log('Error::', error);
+		logger.warn('Error::', error);
 	}
 }
 
 export async function DisconnectFromDb() {
 	try {
 		await prisma.$disconnect();
-		console.log('Disconnected from db!');
+		logger.info('Disconnected from db!');
 	} catch (error) {
-		console.log('Error::', error);
+		logger.warn('Error::', error);
 	}
 }

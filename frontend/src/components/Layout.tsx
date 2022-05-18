@@ -11,6 +11,7 @@ function Layout({
 	className,
 	children,
 	footerStyle = '',
+	contentFluid = true,
 }: PageLayoutProps) {
 	return (
 		<>
@@ -21,7 +22,7 @@ function Layout({
 					<p className="text-muted">{description}</p>
 				</div>
 			</div>
-			<Container fluid>
+			<Container fluid={contentFluid}>
 				<div className={className}>{children}</div>
 			</Container>
 			<Footer style={footerStyle} />

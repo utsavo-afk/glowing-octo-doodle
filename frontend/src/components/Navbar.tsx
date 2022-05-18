@@ -1,26 +1,66 @@
 import React from 'react';
 import { Container, Nav, Navbar as BsNavbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-
+import { BiHomeSmile } from 'react-icons/bi';
+import { IoCreateOutline, IoLogInOutline } from 'react-icons/io5';
+import { Link, useMatch } from 'react-router-dom';
+// ?? optimize useMatch reuse
 const Navbar = () => {
 	return (
 		<BsNavbar bg="light" expand="md" className="sticky-top navbar-light bg-gradient">
 			<Container fluid>
-				<BsNavbar.Brand href="#home">ioChat</BsNavbar.Brand>
+				<BsNavbar.Brand as={Link} to="/">
+					ioChat
+				</BsNavbar.Brand>
 				<BsNavbar.Toggle aria-controls="basic-navbar-nav" />
 				<BsNavbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link as={Link} to="/home">
+						<Nav.Link
+							className={
+								useMatch('/home')
+									? 'disabled text-decoration-underline text-primary fw-bolder'
+									: ''
+							}
+							as={Link}
+							to="/home"
+						>
 							Home
+							{useMatch('/home') && (
+								<sup>
+									<BiHomeSmile />
+								</sup>
+							)}
 						</Nav.Link>
-						<Nav.Link as={Link} to="/signup">
-							Create Account
-						</Nav.Link>
-						<Nav.Link as={Link} to="/login">
+						<Nav.Link
+							className={
+								useMatch('/login')
+									? 'disabled text-decoration-underline text-primary fw-bolder'
+									: ''
+							}
+							as={Link}
+							to="/login"
+						>
 							Login
+							{useMatch('/login') && (
+								<sup>
+									<IoLogInOutline />
+								</sup>
+							)}
 						</Nav.Link>
-						<Nav.Link as={Link} to="/">
-							Landing
+						<Nav.Link
+							className={
+								useMatch('/signup')
+									? 'disabled text-decoration-underline text-primary fw-bolder'
+									: ''
+							}
+							as={Link}
+							to="/signup"
+						>
+							Register
+							{useMatch('/signup') && (
+								<sup>
+									<IoCreateOutline />
+								</sup>
+							)}
 						</Nav.Link>
 					</Nav>
 				</BsNavbar.Collapse>

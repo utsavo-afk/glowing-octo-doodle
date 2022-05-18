@@ -2,12 +2,13 @@
 
 import { ConnectToDB, DisconnectFromDb } from './helpers/db.helper';
 import serverListen from './server';
+import { logger } from './utils';
 
 ConnectToDB()
 	.then(() => {
 		serverListen;
 	})
 	.catch(async error => {
-		console.log('Error::', error);
+		logger.warn('Error::', error);
 		await DisconnectFromDb();
 	});

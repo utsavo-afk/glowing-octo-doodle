@@ -4,13 +4,17 @@ import { Formik } from 'formik';
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { BsArrowRightShort } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+	const navigate = useNavigate();
+
 	return (
 		<Layout
 			title="Login"
 			description="Sign in to your account"
 			footerStyle="fixed-bottom"
+			contentFluid={false}
 		>
 			<Formik
 				initialValues={{ username: '', password: '' }}
@@ -44,7 +48,7 @@ const Login = () => {
 							<p className="d-inline text-muted fst-italic text-decoration-underline mx-2">
 								or
 							</p>
-							<Button variant="secondary">
+							<Button onClick={() => navigate('/signup')} variant="secondary">
 								Create Account <BsArrowRightShort />
 							</Button>
 						</div>

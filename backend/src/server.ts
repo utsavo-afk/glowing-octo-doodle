@@ -3,6 +3,7 @@ import { Server as IoServer } from 'socket.io';
 import { app } from './app';
 import config from './config';
 import { SocketController } from './socketController';
+import { logger } from './utils';
 
 export class WsServer {
 	public static readonly PORT = config.PORT;
@@ -18,7 +19,7 @@ export class WsServer {
 	}
 
 	private listen() {
-		this.httpConnection.listen(WsServer.PORT, () => console.log(`Server running @ http://localhost:${WsServer.PORT}`));
+		this.httpConnection.listen(WsServer.PORT, () => logger.info(`Server running @ http://localhost:${WsServer.PORT}`));
 	}
 }
 export default new WsServer();

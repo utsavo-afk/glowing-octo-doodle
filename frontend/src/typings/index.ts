@@ -7,6 +7,7 @@ export type PageLayoutProps = {
 	description: string;
 	className?: string;
 	footerStyle?: string;
+	contentFluid?: boolean;
 };
 
 export type FooterProps = {
