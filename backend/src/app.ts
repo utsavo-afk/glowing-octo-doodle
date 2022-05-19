@@ -3,8 +3,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import compress from 'compression';
+import cookieParser from 'cookie-parser';
 import config from './config';
-import { userRouter } from './routes';
+import { userRouter, authRouter } from './routes';
 
 export const app = express();
 app.use(
@@ -20,7 +21,8 @@ app.use(
 		extended: true,
 	})
 );
+app.use(cookieParser());
 app.use(json());
 app.use(compress());
 
-app.use('/api/v1', userRouter);
+app.use('/api/v1', [authRouter, userRouter]);

@@ -39,3 +39,9 @@ The development dependencies are
     "typescript": "^4.4.4"
   }
 ```
+
+## Misc
+
+Online RSA Key Generator [here](https://travistidwell.com/jsencrypt/demo/)
+
+Prisma + MongoDB only works with mongodb replica set!

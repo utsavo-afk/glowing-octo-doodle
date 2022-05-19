@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { User } from '@prisma/client';
 import { logger } from '@src/utils';
 
 class AuthController {
 	static login(req: Request, res: Response) {
-		const { username, password } = req.body;
+		const { username, password }: User = req.body;
 		logger.info(username, password);
 		try {
 			// find user service
